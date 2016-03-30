@@ -1,6 +1,16 @@
-//
-// Created by castoryan on 24.03.16.
-//
+/** Project: ORB-SLAM-Android.
+ *  For more information see <https://github.com/castoryan/ORB-SLAM-Android>
+ *
+ *  The original work was done by Raúl Mur-Artal <raulmur at unizar dot es> (University of Zaragoza)
+ *  For more information see <https://github.com/raulmur/ORB_SLAM2>
+ *
+ *  filename: mono_camera.cpp
+ *
+ *  Created or Edited by Qinrui Yan on 30/Oct/2016.
+ *  E-mail: castoryan1991@gmail.com
+ *  Copyright © 2016 Qinrui Yan. All rights reserved.
+ */
+
 #include <android/log.h>
 #include <opencv2/core/core.hpp>
 #include "jni.h"
