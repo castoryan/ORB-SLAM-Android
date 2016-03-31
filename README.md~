@@ -38,6 +38,9 @@ https://github.com/raulmur/ORB_SLAM2/blob/master/Examples/Monocular/KITTI00-02.y
 the parameters in the setting file should be reset according to your camera on the smartphone.<br/>
 
 ----------
+
+**Something else**
+
 Due to the compliexity and efficiency of the code, Viewer thread depends on pangolin library in the original work was disabled here.
 
 By now, only basic functions were supported. The pose of every frame returns via android log files, which are easy to check via Android Studio. Some basic debug info have been added, feel free to add others as you need.
