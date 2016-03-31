@@ -8,6 +8,7 @@ For more information or lastest updated of the source code, please go to:
 https://github.com/raulmur/ORB_SLAM2
 
 The Native codes needed to be cross-compiled by android ndk. My test was based on android-ndk-r11.
+http://developer.android.com/ndk/downloads/index.html
 
 This project needs support of Opencv4Android 2.4.11, for more information, please go to: 
 http://docs.opencv.org/2.4/doc/tutorials/introduction/android_binary_package/O4A_SDK.html
