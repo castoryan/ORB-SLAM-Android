@@ -94,7 +94,7 @@ include $(PREBUILT_STATIC_LIBRARY)
 
 
 
-#### 主要文件 test.cpp ####
+#### Main File mono_camera.cpp ####
 ThirdParty_PATH := ./Thirdparty
 ORB_SLAM2_PATH := ./ORB_SLAM2/src
 
@@ -183,17 +183,3 @@ LOCAL_SRC_FILES += ./mono_camera.cpp
 include $(BUILD_SHARED_LIBRARY)
 
 ####################################################################################################
-#### 主要文件 mono_camera.cpp ####
-
-#include $(CLEAR_VARS)
-#LOCAL_MODULE := mono
-#LOCAL_CPPFLAGS  += -std=c++11
-#LOCAL_LDLIBS    += -llog -landroid -lEGL -lGLESv1_CM -lz
-
-#LOCAL_SHARED_LIBRARIES += liborb
-
-#LOCAL_SRC_FILES += ./mono_camera.cpp
-
-#LOCAL_ALLOW_UNDEFINED_SYMBOLS := true
-
-#include $(BUILD_SHARED_LIBRARY)
