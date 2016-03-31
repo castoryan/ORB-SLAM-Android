@@ -48,7 +48,8 @@ public class MainActivity extends Activity implements CvCameraViewListener2  {
     private MenuItem                mItemStartSLAM = null;
     private boolean                 mIsSLAMstart = false;
     private boolean                 mIsSLAMgoing = false;
-    private Thread th_cam;
+    private boolean                 mIsSLAMshutdown = false;
+
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
@@ -99,7 +100,7 @@ public class MainActivity extends Activity implements CvCameraViewListener2  {
             public void onClick(View v) {
                 // Perform action on click
                 mIsSLAMstart = true;
-                toastMesage = "SLAM is "+mIsSLAMstart;
+                toastMesage = "Initializing the SLAM system";
                 Toast toast = Toast.makeText(getApplicationContext(), toastMesage, Toast.LENGTH_LONG);
                 toast.show();
             }
@@ -112,26 +113,14 @@ public class MainActivity extends Activity implements CvCameraViewListener2  {
             public void onClick(View v) {
                 // Perform action on click
 
-                toastMesage = "Log testing";
+                mIsSLAMshutdown = true;
+
+                toastMesage = "Shut down the SLAM system";
                 Toast toast = Toast.makeText(getApplicationContext(), toastMesage, Toast.LENGTH_LONG);
                 toast.show();
-                //mn.Shutdown();
             }
         });
 
-        Button bt3 = (Button)findViewById(R.id.bt3);
-        bt3.setOnClickListener(new View.OnClickListener() {
-            String toastMesage =  new String();
-            public void onClick(View v) {
-                // Perform action on click
-                Mat img;
-                mn.Shutdown(111);
-                toastMesage = "Shutdown pressing";
-                Toast toast = Toast.makeText(getApplicationContext(), toastMesage, Toast.LENGTH_LONG);
-                toast.show();
-                //mn.TrackMonocular(0000, 0000);
-            }
-        });
 
     }
 
@@ -159,7 +148,6 @@ public class MainActivity extends Activity implements CvCameraViewListener2  {
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.i(TAG, "called onCreateOptionsMenu");
         mItemSwitchCamera = menu.add("Toggle Native/Java camera");
-        mItemStartSLAM = menu.add("Start SLAM");
         return true;
     }
 
@@ -212,29 +200,28 @@ public class MainActivity extends Activity implements CvCameraViewListener2  {
 
     // Image processing here!!
     public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
-        th_cam = Thread.currentThread();
-
-        //Log.d("orb_debug", "hahahaha I am here");
 
         try{
-            Thread.currentThread().sleep(50);
+            //Thread.currentThread().sleep(50);
         }
         catch(Exception e){}
+
+
+        if(mIsSLAMshutdown == true){
+            mn.System("", "", 0, true, 0, 3);
+            mIsSLAMshutdown = false;
+        }
 
 
 
         Mat im = inputFrame.rgba();
         Imgproc.resize(im, im, new Size(640.0, 480.0));
         long add = im.getNativeObjAddr();
-        //Log.d("orb_debug","Image addr is "+ Long.toString(add));
 
 
         if(mIsSLAMgoing == true){
-            //mn.TrackMonocular(add,0);
-            //mn.Shutdown(add);
             mn.System("", "", 0, true, add, 2);
         }
-
 
 
 
@@ -257,10 +244,8 @@ public class MainActivity extends Activity implements CvCameraViewListener2  {
             mIsSLAMgoing = true;
         }
 
-
         return inputFrame.rgba();
     }
-
 
 }
 

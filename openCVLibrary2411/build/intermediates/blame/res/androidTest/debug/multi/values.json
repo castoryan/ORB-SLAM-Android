@@ -1,13 +1,5 @@
 [
     {
-        "outputFile": "/home/castoryan/Android/ndk-samples/ORB2/openCVLibrary2411/build/intermediates/res/merged/androidTest/debug/values/values.xml",
-        "map": []
-    },
-    {
-        "outputFile": "/home/castoryan/Android/ORB2/openCVLibrary2411/build/intermediates/res/merged/androidTest/debug/values/values.xml",
-        "map": []
-    },
-    {
         "outputFile": "/home/castoryan/Android/ORB-SLAM-Android/openCVLibrary2411/build/intermediates/res/merged/androidTest/debug/values/values.xml",
         "map": []
     }

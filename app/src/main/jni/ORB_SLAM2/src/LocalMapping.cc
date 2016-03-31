@@ -45,7 +45,7 @@ void LocalMapping::SetTracker(Tracking *pTracker)
 
 void LocalMapping::Run()
 {
-    LOGD("IN Mapping: Tracking thread id is %lu",std::this_thread::get_id());
+    LOGD("IN LocalMapping: Thread LocalMapping is running");
 
     mbFinished = false;
 

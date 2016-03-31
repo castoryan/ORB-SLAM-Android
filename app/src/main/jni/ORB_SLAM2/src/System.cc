@@ -28,7 +28,6 @@ System::System(const string &strVocFile, const string &strSettingsFile, const eS
                const bool bUseViewer):mSensor(sensor),mbReset(false),mbActivateLocalizationMode(false),
         mbDeactivateLocalizationMode(false)
 {
-    LOGD("IN System: thread id is %ld",std::this_thread::get_id());
 
     //Check settings file
     cv::FileStorage fsSettings(strSettingsFile.c_str(), cv::FileStorage::READ);
@@ -50,7 +49,6 @@ System::System(const string &strVocFile, const string &strSettingsFile, const eS
         exit(-1);
     }
     LOGD("Vocabulary loaded!  addr is %p", mpVocabulary);
-    LOGD("size of vocabulary is %ld",sizeof(*mpVocabulary));
 
     //Create KeyFrame Database
     mpKeyFrameDatabase = new KeyFrameDatabase(*mpVocabulary);

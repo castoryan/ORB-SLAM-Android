@@ -47,12 +47,5 @@
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/bt1" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Track"
-        android:id="@+id/bt3"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/bt2" />
 
 </RelativeLayout>

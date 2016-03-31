@@ -54,8 +54,8 @@ void LoopClosing::SetLocalMapper(LocalMapping *pLocalMapper)
 
 void LoopClosing::Run()
 {
-    LOGD("IN Loopclosing: Tracking thread id is %lu",std::this_thread::get_id());
-    mbFinished =false;
+    LOGD("IN Loopclosing: Thread LoopClosing is running");
+    mbFinished = false;
 
     while(1)
     {
